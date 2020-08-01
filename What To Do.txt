@@ -1,0 +1,25 @@
+Hackathon Planning :
+
+
+Machine Learning Model Making :
+ 	
+	DATASET :
+	ALGORITHM :
+	PRECISION :	
+
+Presentation : 
+
+	ABSTRACT
+	INTRODUCTION
+	MODEL MAKING
+	REQUIREMENT FOR THE MODEL
+	project topic, 
+	technologies used, 
+	uniqueness, 
+	explanation of your project,
+	implementation details, 
+	benefit to the society, 	
+	photos / screenshots of your project and references.
+	CONCLUDION 
+	THANKING
+ 
