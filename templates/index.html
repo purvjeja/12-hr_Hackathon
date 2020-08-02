@@ -10,17 +10,37 @@
 	</div>
 
 <div class="main_input">
-<form action="{{ url_for('result')}}" method="POST">
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> DATE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="date" id="date" name="date"  placeholder="Eg. :09-04-2020" required>
+	<h2>Give Your Date As Number : -</h2> 
+	<h3>example :- Counting starts from 30th January 2020,</h3>
+	<h3> if you want to know for 30th Febuary 2020, give Input as 30, i.e :- 30days from 30th January 2020 </h3>
+
+<form action="{{ url_for('predict')}}" method="POST">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<b> DATE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="number" id="date" name="date" required>
 
 
 <br></br>
 <br></br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="submit" value="Calculate Cases" class="button">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="submit" value="Calculate Cases" 
+ onclick="GetDays()" class="button">
 </form>
+<h3>{{predicted}}</h3>
+<h3>{{score}}</h3>
 </div>
+ <!-- <script type="text/javascript">
+        function GetDays(){
+                var dropdt = new Date(document.getElementById("date").value);
+                var pickdt =new Date(document.getElementById("date").value);
+                console.log(dropdt);
+                return parseInt((dropdt - pickdt) / (24 * 3600 * 1000));
+        }
+        function cal(){
+        if(document.getElementById("drop_date")){
+
+        }  
+    }
+  </script> -->
 </body>
 <style type="text/css">
   .animate__animated.animate__slideInDown{
@@ -30,7 +50,7 @@
 
 	body{
 		background-color: black;
-		background-image:url('s.jpg');
+		background-image:url('static/s.jpg');
 		background-position:50% 20%;
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
@@ -82,10 +102,11 @@ margin-top: 10px;
 		position: absolute;
 		left: 25%;
 		width: 700px;
-		height: 70px;
+		height: 450px;
 		margin-top: 150px;
 		padding: 20px;
 		font-size: 25px;
+		color:white;
 }
 .main_input:hover{
 	  box-shadow: 3px 2px 3px 3px white;
