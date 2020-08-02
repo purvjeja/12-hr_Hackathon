@@ -13,9 +13,16 @@ app = Flask(__name__)
 def Home():
     return render_template('index.html')
 
+@app.route('/Hotspot',methods=['GET','POST'])
+def ZONE():
+    return render_template('predict_hotspot.html')
+
+
 
 @app.route('/Predict', methods=['GET','POST'])
 def predict():
+
+ if request.method=='POST':  
     case_data=pd.read_csv('Data/Main.csv')
     X1=case_data['serial'].iloc[:34].values
     Y1=case_data['Total Confirmed'].iloc[:34].values
@@ -72,11 +79,16 @@ def predict():
     if date > 150 :
       y_pred = regressor.predict([[date]])
       score=regressor.score(X_test4,Y_test4)
-    y_pred = float(str(y_pred)[2:-2])
+    y_pred =(str(y_pred)[2:-2])
+    y_pred =(float(y_pred))
+    y_pred =(int(y_pred))
     score=round(score,2)
     score=score*100
-    return render_template('result.html',predicted="On That Day The Number Of Corona Cases Will Be {}".format(y_pred),score="We Are {}% Sure About Our Predcition".format(score))
+    return render_template('result.html',predicted="On That Day, The Number Of Corona Cases Will Be {}".format(y_pred),score="We Are {}% Sure About Our Prediction !".format(score))
 
+ else:
+    return render_template('index.html')
+    
 
 if __name__=="__main__":
     app.run(debug=True)

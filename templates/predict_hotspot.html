@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Predict</title>
+
+</head>
+<body>
+<div class="main">
+   Details of Region
+  </div>
+<div class="main_input">
+<b>  Surface Area &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+  <input type="number" id="sa" name="sa">&nbsp;&nbsp;<b>km square</b>
+
+<BR><br>
+
+  <b>Population &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+  <input type="number" id="p" name="popu" required>&nbsp;&nbsp;<b>lakh</b>
+
+<BR><br>
+<input type="button" class="button" onclick="predict()" value="Check">
+<div  id="hell"></div>
+</div>
+</body>
+<script type="text/javascript">
+	function predict(){
+		var surface = document.getElementById("sa").value;
+        var population = document.getElementById("p").value;
+        var pic=document.getElementById("hell");
+        surface=surface*3000;
+        population=population*100000;
+        var result = surface-population;
+        if(result < 0){ document.body.style.backgroundColor = "red";
+        	pic.innerHTML="<h1>RED ZONE</h1>";
+        }
+        else {document.body.style.backgroundColor = "green";
+				pic.innerHTML="<h1>GREEN ZONE</h1>";
+		}
+        console.log(result);
+	}
+</script>
+<style type="text/css">
+body{
+background-color: rgba(0,0,0,0.4);
+}
+#hell{
+
+}
+b{
+  color: white;
+}
+.button{
+  border: 2px solid white;
+  width: 200px;
+  height:40px;
+  border-radius: 10px;
+  font-size: 25px;
+ margin-top: 10px;
+}
+.button:hover{
+  background-color:rgba(255,255,255,0.5);
+  color: black;
+  box-shadow: 1px 1px 1px 1px white;
+
+}
+.main{
+  background: rgba(0,0,0,0.7);
+    border-radius: 30px;
+    position: absolute;
+    left: 25%;
+    width: 650px;
+    height: 80px;
+    color: white;
+    margin-top: 80px;
+    align-content: center;
+    font-size: 50px;
+    padding-top: 20px;
+    padding-left: 40px;
+}
+.main_input{
+    background: rgba(0,0,0,0.8);
+    border-radius: 30px;
+    position: absolute;
+    left: 25%;
+    width: 650px;
+    height: 180px;
+    margin-top: 200px;
+    padding: 20px;
+    font-size: 25px;
+}
+.main_input:hover{
+    box-shadow: 1px 1px 1px 1px white;
+}
+
+input{ 
+  font-size: 20px;
+    width: 150px;
+    height: 25px;
+    outline:none;
+    background:none;
+    border: none;
+      outline:none;
+        border-bottom: 3px solid white;
+        color: white;
+       border-radius: 10px;
+        background-color: rgba(0,0,0,0.7);
+}
+</style>
+</html>
